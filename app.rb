@@ -1,17 +1,22 @@
 require 'sinatra'
 require 'rest-client'
 require 'json'
-require 'config.yml'
+require './lib/playlist.rb'
 
-class Playlist < Sinatra::Base
+class App < Sinatra::Base
 
   get '/' do
 
+    api = Playlist::DEEZER_API
+    songs = Playlist::SET1
 
+    songs.map do |key, value|
+      songs[key] = JSON.parse(RestClient.get("#{api}#{value}"))
+    end
 
-    song1 = JSON.parse(RestClient.get('http://api.deezer.com/track/3135556'))
+    p songs
 
-    erb :'index', locals:{ track1: song1, track2: song2 }
+    erb :'index', locals:{ songs: songs}
   end
 
 
