@@ -7,20 +7,24 @@
   <body>
 
     <h1>playlistsssss</h1>
-    <div id="player1">
-      SONG 1!!!!
-      <audio src="<%= track1['preview'] %>" controls>
-        <p>Your browser does not support the <code>audio</code> element </p>
-      </audio>
-    </div>
+    <p>Deezer only allows 30 second previews for users who aren't logged in :'( </p>
 
-    <div id="player2">
-      <div class="control">SONG 2!!!!</div>
-    </div>
+    <% songs.each do |song| %>
+      <div class="song"
+           name="<%= song['title'] %>">
 
-  <script>
+        <p>
+          <%= song['title'] %>,
+          <%= song['contributors'].first['name'] %>
+        </p>
 
-  </script>
+        <audio src="<%= song['preview'] %>" controls>
+          <p>Your browser does not support the <code>audio</code> element </p>
+        </audio>
+
+      </div>
+    <% end %>
+
   </body>
 </html>
 

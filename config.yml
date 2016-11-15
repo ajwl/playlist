@@ -1,8 +1,0 @@
-#Config for playlist
-
-tracklist:
-  track1: 135875052
-  track2: 135374660
-  track3: 135783530
-
-deezer_base_url: 'http://api.deezer.com/track/'
