@@ -4,9 +4,14 @@ GEM
     activesupport (3.2.22.4)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
+    hashdiff (0.3.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -16,6 +21,7 @@ GEM
     mime-types-data (3.2016.0521)
     multi_json (1.12.1)
     netrc (0.11.0)
+    public_suffix (2.0.4)
     rack (1.5.5)
     rack-protection (1.5.3)
       rack
@@ -38,6 +44,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    safe_yaml (1.0.4)
     serve (1.5.2)
       activesupport (~> 3.2.12)
       i18n
@@ -56,6 +63,11 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    vcr (3.0.3)
+    webmock (2.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -66,6 +78,8 @@ DEPENDENCIES
   rspec
   serve
   sinatra
+  vcr
+  webmock
 
 RUBY VERSION
    ruby 2.3.1p112

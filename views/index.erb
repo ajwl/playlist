@@ -9,20 +9,24 @@
     <h1>playlistsssss</h1>
     <p>Deezer only allows 30 second previews for users who aren't logged in :'( </p>
 
-    <% songs.each do |song| %>
-      <div class="song"
-           name="<%= song['title'] %>">
+    <% unless songs.nil? %>
+      <% songs.each do |song| %>
+          <div class="song"
+               name="<%= song['title'] %>">
 
-        <p>
-          <%= song['title'] %>,
-          <%= song['contributors'].first['name'] %>
-        </p>
+            <p>
+              <%= song['title'] %>,
+              <%= song['contributors'].first['name'] %>
+            </p>
 
-        <audio src="<%= song['preview'] %>" controls>
-          <p>Your browser does not support the <code>audio</code> element </p>
-        </audio>
+            <audio src="<%= song['preview'] %>" controls>
+              <p>Your browser does not support the <code>audio</code> element </p>
+            </audio>
 
-      </div>
+          </div>
+      <% end %>
+    <% else %>
+        <p>Sorry these Deezer songs are not available at the minute</p>
     <% end %>
 
   </body>
