@@ -1,0 +1,22 @@
+/* LAYOUT */
+
+body {
+    padding: 0 10%;
+    font-family: 'Monserrat', sans-serif;
+}
+#container {
+    text-align: center;
+}
+#music-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.song {
+
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
