@@ -15,16 +15,19 @@
       <% unless songs.nil? %>
         <% songs.each do |song| %>
             <div class="song"
-                 name="<%= song['title'] %>">
+                 name="<%= song['title'] %>"
+                 id="<%= song['id']%>">
 
-              <img id="music-controls" src="img/CD_icon.png">
-              </img>
               <p>
                 <%= song['title'] %>,
                 <%= song['contributors'].first['name'] %>
               </p>
 
-              <audio src="<%= song['preview'] %>" controls>
+              <img class="music-controls"  src="img/CD_icon.png">
+
+              <audio src="<%= song['preview'] %>"
+                     controls
+                     class="<%= song['id']%>">
                 <p>Your browser does not support the <code>audio</code> element </p>
               </audio>
 

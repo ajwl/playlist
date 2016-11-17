@@ -7,7 +7,7 @@ body {
 #container {
     text-align: center;
 }
-#music-container {
+.music-container {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
