@@ -25,7 +25,7 @@ var CDAPP = (function(){
         return audioObjects;
     };
 
-
+    //Attach click events to the cd
     var attachEvent = function(songBox){
         for(var i=0; i<songBox.length; i++){
             songBox[i].addEventListener(
@@ -67,6 +67,32 @@ var CDAPP = (function(){
             },
             false);
     };
+
+
+
+
+    //Create audio context and alter background-color
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    //Select audio tag as a source
+    var audioSource = audioElements[0];
+
+    var filereader = new FileReader;
+    filereader.onload = function() {
+        var arrayBuffer = this.result;
+        snippet.log(arrayBuffer);
+        snippet.log(arrayBuffer.byteLength);
+    };
+    filereader.readAsArrayBuffer(audioSource);
+    console.log(arrayBuffer);
+
+
+    audioCtx.decodeAudioData(audioSource, function(buffer){
+        audioBuffer = buffer;
+        soundSource = audioCtx.createBufferSource();
+        soundSource.buffer = audioBuffer;
+    },
+        function(e){"Error with decoding audio data" + e.err});
 
 
     getSources(audioElements);
