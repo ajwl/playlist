@@ -2,6 +2,7 @@
 body {
     padding: 0 10%;
     font-family: 'Monserrat', sans-serif;
+    background-color: #00cdcd;
 }
 h1 {
     font-size: 5em;
@@ -47,14 +48,19 @@ p.title{
 
 /* ROTATING CD */
 .spinning {
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite;
 }
+@-webkit-keyframes spin {
+    from { transform: rotate(0deg);  }
+    to { transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { transform: rotate(0deg);  }
+    to { transform: rotate(360deg); }
+}
 @keyframes spin {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-
+    from { transform: rotate(0deg);  }
+    to { transform: rotate(360deg); }
 }
