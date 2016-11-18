@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" name="viewport">
-    <title>Crazy playlist</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Spinning playlist</title>
+
+    <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <div id="container">
-      <h1>playlistsssss</h1>
-      <p>Deezer only allows 30 second previews for users who aren't logged in :'( </p>
+      <h1>playlist</h1>
+      <p class="instructions">Click the CD to play or pause the music for each song</p>
+      <p class="info">Deezer only allows 30 second previews for users who aren't logged in :'( </p>
 
       <section id="music-container">
       <% unless songs.nil? %>
@@ -18,18 +21,16 @@
                  name="<%= song['title'] %>"
                  id="<%= song['id']%>">
 
-              <p>
+              <p class="title">
                 <%= song['title'] %>,
                 <%= song['contributors'].first['name'] %>
               </p>
-
-              <img class="music-controls"  src="img/CD_icon.png">
-
               <audio src="<%= song['preview'] %>"
-                     controls
                      class="<%= song['id']%>">
                 <p>Your browser does not support the <code>audio</code> element </p>
               </audio>
+
+              <img class="music-controls" src="img/CD_icon.png" >
 
             </div>
         <% end %>

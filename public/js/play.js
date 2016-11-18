@@ -8,29 +8,26 @@ var CDAPP = (function(){
         audioObjects = [],
         songElements = document.querySelectorAll('.song');
 
-    console.log("this is" + audioElements);
-
 
     var getSources = function(el){
         for(var i=0; i<el.length; i++ ){
             audioSrcs.push(el[i].src);
         }
-        console.log(audioSrcs);
         createAudioObjects(audioSrcs);
     };
 
+
     var createAudioObjects = function(sr){
         for(var i=0; i<sr.length; i++){
-            audioObjects.push(new Audio(sr[i]));
+            var a = new Audio(sr[i]);
+            audioObjects.push(a);
         }
-        console.log(audioObjects);
-        return audioObjects
+        return audioObjects;
     };
 
+
     var attachEvent = function(songBox){
-
         for(var i=0; i<songBox.length; i++){
-
             songBox[i].addEventListener(
                 "click",
                 assignAction,
@@ -39,46 +36,44 @@ var CDAPP = (function(){
         };
     };
 
+
+    //Find audio object associated with event target
     var assignAction = function (e){
 
-        console.log("here, e is this " + e.target);
+        var clickedId = e.currentTarget.id,
+            clickedBox = document.getElementById(clickedId),
+            clickedCd = clickedBox.getElementsByTagName('img')[0],
+            audioToPlay = clickedBox.getElementsByTagName('audio')[0];
 
-        //Find audio file associated with event target
-
-        var clickedElement = document.getElementById(e.target.id);
-
-        console.log(clickedElement);
-
-        var audioToPlay = clickedElement.getElementsByTagName('audio');
-
-        console.log(audioToPlay);
-
-        if(audioToPlay.paused === true){
+        if(audioToPlay.paused == true){
             audioToPlay.play();
+            clickedCd.classList.add('spinning');
         }
-        else{
+        else if(audioToPlay.ended == true){
+            clickedCd.classList.remove('spinning');
+        }
+        else {
             audioToPlay.pause();
+            clickedCd.classList.remove('spinning');
         }
+    };
 
+    //Stop spinning after song ends
+    for(var i=0; i<audioElements.length; i++) {
+        audioElements[i].addEventListener(
+            "ended",
+            function () {
+                this.nextElementSibling.classList.remove('spinning');
+            },
+            false);
     };
 
 
     getSources(audioElements);
     attachEvent(songElements);
 
-
-    //
-    // if(audios.length === imgs.length){
-    //     attachPlayEvent();
-    // }
-    // else {
-    //     //Append an error message
-    // }
-
-
 })();
 
-//CDAPP.init();
 
 
 

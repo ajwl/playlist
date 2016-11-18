@@ -1,11 +1,30 @@
-/* LAYOUT */
-
+/* BASIC STYLE */
 body {
     padding: 0 10%;
     font-family: 'Monserrat', sans-serif;
 }
+h1 {
+    font-size: 5em;
+}
+p {
+    font-size: 1em;
+}
+p.info {
+    font-size: .7em;
+    font-weight: 500;
+}
+p.instructions {
+    font-weight:bold;
+}
+p.title{
+    margin-bottom: 0;
+}
+
+/* LAYOUT */
 #container {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .music-container {
     display: -ms-flexbox;
@@ -13,10 +32,29 @@ body {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
+    padding-top: .5em;
 }
 .song {
-
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
 }
+.music-controls {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
 
+
+/* ROTATING CD */
+.spinning {
+    animation: spin 4s linear infinite;
+}
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+
+}
