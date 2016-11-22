@@ -45,6 +45,15 @@ p.title{
     margin-left: auto;
 }
 
+@media (max-width:500px){
+    h1{
+        font-size: 4em;
+    }
+    .music-controls{
+        width: 15em;
+    }
+}
+
 
 /* ROTATING CD */
 .spinning {
